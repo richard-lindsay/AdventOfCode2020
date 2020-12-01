@@ -4,33 +4,43 @@ import dev.richardlindsay.adventOfCode.Utils
 
 val utils = Utils()
 
+
 fun main(){
-    println("Project Successfully Set Up")
-    val input = utils.loadFile("/dayOne/dayOneInput.txt")
+    val input = utils.loadFile("/dayOne/dayOneInput.txt").map { it.toInt() }.toHashSet()
+    dayOnePartOne(input)
+    dayOnePartTwo(input)
+}
 
-    var total = 0
-    var i = 0
-    var j = 0
-    var k = 0
+fun dayOnePartOne(input: HashSet<Int>){
+    var result = 0
 
-    while (total != 2020 && i != 198){
-        val inputI = input[i].toInt()
-        j = i
-        while (total != 2020 && j != 198){
-            val inputJ = input[j].toInt()
-            k = j
-            while (total != 2020 && k != 199){
-                val inputK = input[k].toInt()
-                total = inputI + inputJ + inputK
-                k++
-            }
-            j++
-            println(j)
+    input.first {
+        val remainder1 = 2020 - it
+        if (input.contains(remainder1)) {
+            result = it * remainder1
+            return@first true
         }
-        i++
+        false
     }
+    println("Day 1 Part 1 Result : $result")
+}
 
-    val result = input[i - 1].toInt() * input[j - 1].toInt() * input[k - 1].toInt()
+fun dayOnePartTwo(input: HashSet<Int>){
 
-    println(result)
+    var result = 0
+
+    input.first { input1 ->
+        val r1 = 2020 - input1
+
+        input.any { input2 ->
+            val r2 = r1 - input2
+            if(input.contains(r2)){
+                result = input1 * input2 * r2
+                return@first true
+            }
+            false
+        }
+        false
+    }
+    print("Day 1 Part 2 Result : $result")
 }
