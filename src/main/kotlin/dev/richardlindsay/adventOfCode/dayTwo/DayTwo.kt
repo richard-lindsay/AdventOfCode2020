@@ -1,7 +1,8 @@
 package dev.richardlindsay.adventOfCode.dayTwo
 
-import dev.richardlindsay.adventOfCode.dayOne.utils
+import dev.richardlindsay.adventOfCode.Utils
 
+val utils = Utils()
 
 data class Password(
     val char: Char,
