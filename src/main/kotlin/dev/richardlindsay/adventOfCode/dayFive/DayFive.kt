@@ -20,7 +20,7 @@ class DayFive: Solution() {
 
         val result = possibleSeatNumbers.minus(seatNumbers).sorted()
         assert(result[0] == 727)
-        print("Day 5 Part 2 Result: ${result[0]}")
+        println("Day 5 Part 2 Result: ${result[0]}")
     }
 
     fun getSeatNumber(input: List<String>): List<Int>{
