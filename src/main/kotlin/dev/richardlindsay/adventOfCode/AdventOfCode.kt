@@ -1,31 +1,23 @@
 package dev.richardlindsay.adventOfCode
 
+import dev.richardlindsay.adventOfCode.dayFive.DayFive
+import dev.richardlindsay.adventOfCode.dayFour.DayFour
+import dev.richardlindsay.adventOfCode.dayOne.DayOne
+import dev.richardlindsay.adventOfCode.dayThree.DayThree
+import dev.richardlindsay.adventOfCode.dayTwo.DayTwo
+
+val dayOne = DayOne()
+val dayTwo = DayTwo()
+val dayThree = DayThree()
+val dayFour = DayFour()
+val dayFive = DayFive()
+
 fun main(){
-
-    val baseLength = 100
-
-    var starString = ""
-
-    for (i in 0 .. baseLength/2 + 1) starString = starString.plus(" ")
-    starString = starString.plus("*")
-
-    val layers: MutableList<String> = mutableListOf(starString)
-
-    for (i in 0 .. baseLength / 2) {
-        var layerString = ""
-
-        for (j in 0 .. baseLength/2 - i) layerString = layerString.plus(" ")
-        for (j in 0 .. i ) layerString = layerString.plus("/")
-        layerString = layerString.plus("|")
-        for (j in 0 .. i ) layerString = layerString.plus("""\""")
-        layers.add(layerString)
-    }
-
-    layers.forEach {
-        println(it)
-    }
+    dayOne.runSolution("/dayOneInput.txt")
+    dayTwo.runSolution("/dayTwoInput.txt")
+    dayThree.runSolution("/dayThreeInput.txt")
+    dayFour.runSolution("/dayFourInput.txt")
+//    dayFive.runSolution("/dayFiveInput.txt")
 }
 
-class AdventOfCode {
-
-}
+class AdventOfCode
