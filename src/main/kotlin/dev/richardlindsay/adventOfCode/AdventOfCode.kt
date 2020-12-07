@@ -17,7 +17,7 @@ fun main(){
     dayTwo.runSolution("/dayTwoInput.txt")
     dayThree.runSolution("/dayThreeInput.txt")
     dayFour.runSolution("/dayFourInput.txt")
-//    dayFive.runSolution("/dayFiveInput.txt")
+    dayFive.runSolution("/dayFiveInput.txt")
 }
 
 class AdventOfCode
